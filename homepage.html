@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة دار الأحفاد للتعليم - الصفحة الرئيسية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Tajawal:wght@700&family=Cairo&family=Lemonada:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            direction: rtl;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            background-color: #f3f3f3;
+        }
+        .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+        .video-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #1a237e;
+        }
+        .school-name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 3rem;
+            color: #1a237e;
+        }
+        .slogan {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #1a237e;
+        }
+        .school-logo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: auto;
+            z-index: 10;
+        }
+        .director-section {
+            background: #fafafa;
+            text-align: center;
+            padding: 2rem;
+        }
+        .director-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .director-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .director-name {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .director-info {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            margin-top: 5px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .director-message {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.3rem;
+            margin-top: 20px;
+            color: #222;
+        }
+        .video-message {
+            margin-top: 10px;
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .contact-section {
+            background: #4CAF50;
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .contact-title {
+            font-family: 'Lemonada', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="دار الاحفاد.jpg" alt="شعار مدرسة دار الأحفاد" class="school-logo">
+
+    <div class="section video-section">
+        <video autoplay loop muted class="background-video">
+            <source src="https://video.twimg.com/amplify_video/1850023330130104320/vid/avc1/1280x720/3kVvTL1ZdomTdr9v.mp4?tag=16" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو
+        </video>
+        <div class="video-content">
+            <h1 class="school-name">شركة دار الأحفاد للتعليم</h1>
+            <p class="slogan">جيل الرواد … تصنعه مدارس الأحفاد</p>
+        </div>
+    </div>
+
+    <div class="section director-section">
+        <div class="director-img">
+            <img src="https://i.ibb.co/kGN67H0/director-newest.jpg" alt="أ. سعيد آل مرضمة">
+        </div>
+        <p class="director-name">أ. سعيد آل مرضمة</p>
+        <div class="director-info">
+            <p>رئيس مجلس النادي الأدبي الثقافي بنجران</p>
+            <p>مدير شركة دار الأحفاد للتعليم</p>
+        </div>
+
+        <div class="director-message">كلمة أ. سعيد آل مرضمة ليوم المعلم العالمي</div>
+        <video controls class="video-message">
+            <source src="https://video.twimg.com/amplify_video/1843149502670118912/vid/avc1/1280x720/oeXvOYAlENuth8Op.mp4?tag=16" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو
+        </video>
+    </div>
+
+    <div class="section contact-section">
+        <p class="contact-title">التواصل</p>
+        <p>البريد الإلكتروني: alhafead@alhafeadschool.com</p>
+        <p>رقم التواصل: +966558945008</p>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        
+        const revealSection = () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.85) {
+                    section.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSection);
+        window.addEventListener('load', revealSection);
+    </script>
+</body>
+</html>
